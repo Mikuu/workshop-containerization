@@ -1,0 +1,29 @@
+---
+server:
+  port: 8088
+---
+spring:
+  application:
+    name: compose-app
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/compose-app
+  cache:
+    type: redis
+    redis:
+      key-prefix: vin-
+      time-to-live: 600000
+      use-key-prefix: true
+  redis:
+    host: localhost
+    port: 6379
+---
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG
+
