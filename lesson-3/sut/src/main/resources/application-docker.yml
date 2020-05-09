@@ -7,7 +7,7 @@ spring:
     name: compose-app
   data:
     mongodb:
-      uri: mongodb://mongo-svc:27017/compose-app
+      uri: mongodb://localhost:27017/compose-app
   cache:
     type: redis
     redis:
@@ -15,7 +15,7 @@ spring:
       time-to-live: 600000
       use-key-prefix: true
   redis:
-    host: redis-svc
+    host: localhost
     port: 6379
 ---
 logging:
