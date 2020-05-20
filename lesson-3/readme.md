@@ -16,6 +16,9 @@ Compose Exercise
 
 ##### Some commands
 - start API with source code
+
+`you may need launch Redis and Mongodb locally before start the API`
+
 ```commandline
 SPRING_PROFILES_ACTIVE=default ./gradlew bootRun
 ```
