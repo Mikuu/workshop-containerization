@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+
+  app:
+    image: compose-app:latest
+    ports:
+      - "8088:8088"
+    networks:
+      - compose-network
+
+  mongo-svc:
+    image: mongo:latest
+    networks:
+      - compose-network
+
+  redis-svc:
+    image: redis:latest
+    networks:
+      - compose-network
+
+networks:
+  compose-network:

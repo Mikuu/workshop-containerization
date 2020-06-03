@@ -1,0 +1,9 @@
+FROM gradle AS BuildServer
+WORKDIR /src/app
+COPY  . .
+RUN gradle assemble
+
+FROM mcr.microsoft.com/java/jre:8-zulu-alpine AS AppServer
+COPY --from=BuildServer /src/app/build/libs/compose-0.0.1-SNAPSHOT.jar /src/app/app.jar
+EXPOSE 8088
+ENTRYPOINT ["java","-Dspring.profiles.active=docker","-jar","/src/app/app.jar"]
